@@ -1,7 +1,33 @@
 import React from "react";
 import { Mail, Phone, MapPin, Send, Github, Linkedin } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData as any).toString(),
+      });
+
+      if (response.ok) {
+        navigate("/thank-you");
+      } else {
+        alert("There was an error sending your message. Please try again.");
+      }
+    } catch (error) {
+      alert("There was an error sending your message. Please try again.");
+    }
+  };
+
   return (
     <section id="contact" className="py-20 bg-slate-800">
       <div className="container mx-auto px-6">
@@ -26,7 +52,7 @@ const Contact = () => {
             >
               drop me an email
             </a>{" "}
-            — I’d love to hear from you!
+            — I'd love to hear from you!
           </p>
         </div>
 
@@ -97,16 +123,16 @@ const Contact = () => {
                 name="contact"
                 method="POST"
                 data-netlify="true"
-                action="/thank-you"
                 netlify-honeypot="bot-field"
+                onSubmit={handleSubmit}
                 className="space-y-6"
               >
                 <input type="hidden" name="form-name" value="contact" />
-                <p className="hidden">
+                <div className="hidden">
                   <label>
-                    Don’t fill this out if you’re human: <input name="bot-field" />
+                    Don't fill this out if you're human: <input name="bot-field" />
                   </label>
-                </p>
+                </div>
 
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
