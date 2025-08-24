@@ -4,29 +4,51 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Darshan | Full Stack Developer</title>
-    <meta name="description" content="Portfolio of Darshan, a Java Full Stack Developer skilled in Spring Boot, MySQL, and modern web technologies." />
+    <meta
+      name="description"
+      content="Portfolio of Darshan, a Java Full Stack Developer skilled in Spring Boot, MySQL, and modern web technologies."
+    />
     <meta name="author" content="Darshan" />
 
     <!-- Open Graph / Social -->
-    <meta property="og:title" content="Darshan | Full Stack Developer Portfolio" />
-    <meta property="og:description" content="Java, Spring Boot, MySQL, HTML, CSS, JavaScript, REST APIs and more." />
+    <meta
+      property="og:title"
+      content="Darshan | Full Stack Developer Portfolio"
+    />
+    <meta
+      property="og:description"
+      content="Java, Spring Boot, MySQL, HTML, CSS, JavaScript, REST APIs and more."
+    />
     <meta property="og:type" content="website" />
-   
+
     <meta property="og:image" content="/preview.png" />
 
-    
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Darshan | Full Stack Developer Portfolio" />
-    <meta name="twitter:description" content="Building scalable backend systems and modern web apps using Java & Spring Boot." />
-    
+    <meta
+      name="twitter:title"
+      content="Darshan | Full Stack Developer Portfolio"
+    />
+    <meta
+      name="twitter:description"
+      content="Building scalable backend systems and modern web apps using Java & Spring Boot."
+    />
+
     <meta name="twitter:image" content="/preview.png" />
 
     <link rel="icon" href="/favicon.png" type="image/png" />
-
   </head>
 
   <body>
     <div id="root"></div>
+
+    <!-- Netlify Form Detection (hidden) -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="subject" />
+      <textarea name="message"></textarea>
+    </form>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
